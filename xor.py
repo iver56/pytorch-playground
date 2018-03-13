@@ -45,7 +45,7 @@ loss_fn = torch.nn.BCELoss()  # binary cross-entropy loss
 # the model for us. Here we will use Adam; the optim package contains many other
 # optimization algorithms. The first argument to the Adam constructor tells the
 # optimizer which Variables it should update.
-learning_rate = 0.02
+learning_rate = 0.03
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 for t in range(500):
     # Forward pass: compute predicted y by passing x to the model.
@@ -69,3 +69,7 @@ for t in range(500):
     # Calling the step function on an Optimizer makes an update to its
     # parameters
     optimizer.step()
+
+# Use the model
+output = model.forward(x)
+print(output.data.numpy())
